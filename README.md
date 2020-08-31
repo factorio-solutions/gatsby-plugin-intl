@@ -40,4 +40,4 @@ A customized gatsby-plugin-intl package with slug translation support.
       }
     }
     ```
-2. Continue using other features from the [original package]((https://github.com/wiziple/gatsby-plugin-intl)).
+2. Continue using other features from the [original package](https://github.com/wiziple/gatsby-plugin-intl).
