@@ -3,6 +3,16 @@
   "description": "Gatsby plugin to add react-intl onto a site",
   "version": "0.3.3",
   "author": "Daewoong Moon <wiziple@gmail.com>",
+  "contributors": [
+    {
+      "name": "Jonathan Forget",
+      "url": "https://github.com/Jno21"
+    },
+    {
+      "name": "Jiri Bartos",
+      "url": "https://github.com/bartosjiri"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/wiziple/gatsby-plugin-intl"
   },
