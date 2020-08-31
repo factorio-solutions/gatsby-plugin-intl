@@ -15,8 +15,8 @@ function flattenMessages(nestedMessages, prefix = "") {
   }, {})
 }
 
-exports.onCreateWebpackConfig = ({ actions, plugins }, pluginOptions) => {
-  const { redirectComponent = null, languages, defaultLanguage } = pluginOptions
+exports.onCreateWebpackConfig = ({actions, plugins}, pluginOptions) => {
+  const {redirectComponent = null, languages, defaultLanguage} = pluginOptions
   if (!languages.includes(defaultLanguage)) {
     languages.push(defaultLanguage)
   }
@@ -38,12 +38,12 @@ exports.onCreateWebpackConfig = ({ actions, plugins }, pluginOptions) => {
   })
 }
 
-exports.onCreatePage = async ({ page, actions }, pluginOptions) => {
+exports.onCreatePage = async ({page, actions}, pluginOptions) => {
   //Exit if the page has already been processed.
   if (typeof page.context.intl === "object") {
     return
   }
-  const { createPage, deletePage } = actions
+  const {createPage, deletePage} = actions
   const {
     path = ".",
     languages = ["en"],
@@ -75,7 +75,7 @@ exports.onCreatePage = async ({ page, actions }, pluginOptions) => {
     var slugs = {}
     languages.forEach(language => {
       var messages = getMessages(path, language)
-      slugs[language] = messages[`${currentPage}.slug`] ? `/${messages[currentPage + '.slug']}` : `/${currentPage}`
+      slugs[language] = messages[`pages.${currentPage}`] ? `/${messages[`pages.${currentPage}`]}` : `/${currentPage}`
     })
     return slugs
   }
