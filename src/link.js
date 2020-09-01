@@ -1,17 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link as GatsbyLink, navigate as gatsbyNavigate } from "gatsby"
-import { IntlContextConsumer } from "./intl-context"
+import {Link as GatsbyLink, navigate as gatsbyNavigate} from "gatsby"
+import {IntlContextConsumer} from "./intl-context"
 
 const getLink = (language, to, routed, messages) => {
-  const currentPage = to.replace(/\//g, "")
-  const slugTo = messages[`${currentPage}.slug`] ? messages[`${currentPage}.slug`] : to
+  const currentPage = to.split('/').filter(a => a).join('/')
+  const slugTo = messages[`pages.${currentPage}`] ? messages[`pages.${currentPage}`] : to
   const link = routed || language ? `/${language}/${slugTo}` : `${slugTo}`
 
   return link;
 }
 
-const Link = ({ to, language, children, onClick, ...rest }) => (
+const Link = ({to, language, children, onClick, ...rest}) => (
   <IntlContextConsumer>
     {intl => {
       const languageLink = language || intl.language
@@ -52,7 +52,7 @@ export const navigate = (to, options) => {
     return
   }
 
-  const { language, routed, messages } = window.___gatsbyIntl
+  const {language, routed, messages} = window.___gatsbyIntl
   const link = getLink(language, to, routed, messages)
   gatsbyNavigate(link, options)
 }
@@ -61,7 +61,7 @@ export const changeLocale = (language, to) => {
   if (typeof window === "undefined") {
     return
   }
-  const { slugs } = window.___gatsbyIntl
+  const {slugs} = window.___gatsbyIntl
 
   // TODO: check slash
   const link = `/${language}${slugs[language]}${window.location.search}`

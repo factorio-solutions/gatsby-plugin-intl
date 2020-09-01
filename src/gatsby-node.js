@@ -71,7 +71,7 @@ exports.onCreatePage = async ({page, actions}, pluginOptions) => {
 
   // Return all languages slug for this page
   const getSlugs = (path) => {
-    const currentPage = page.path.replace(/\//g, "")
+    const currentPage = page.path.split('/').filter(a => a).join('/')
     var slugs = {}
     languages.forEach(language => {
       var messages = getMessages(path, language)
