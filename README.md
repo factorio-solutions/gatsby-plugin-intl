@@ -12,7 +12,7 @@ A customized gatsby-plugin-intl package with slug translation support.
 
 1. Install the package:
     ```
-    npm install --save https://github.com/bartosjiri/gatsby-plugin-intl/tarball/master
+    npm install --save https://github.com/bartosjiri/gatsby-plugin-intl
     ```
 2. Add the plugin to the `gatsby-config.js` file:
     ```
@@ -34,9 +34,10 @@ A customized gatsby-plugin-intl package with slug translation support.
     ```
     {
       "pages": {
-        "404": "404",
+        "404": "not-found",
         "index": "index",
-        "page-2": "stranka-2"
+        "page-2": "stranka-2",
+        "subpage/page-3": "podstranka/stranka-3"
       }
     }
     ```
