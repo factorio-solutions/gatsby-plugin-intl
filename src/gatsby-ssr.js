@@ -1,2 +1,2 @@
 import wrapPage from "./wrap-page"
-export const wrapRootElement = wrapPage
+export const wrapPageElement = wrapPage
